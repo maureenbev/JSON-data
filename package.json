@@ -1,0 +1,65 @@
+{
+  "name": "json-splora",
+  "version": "1.0.2",
+  "description": "GUI for editing, visualizing, and manipulating JSON data",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wellsjo/JSON-Splora.git"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/wellsjo/JSON-Splora/issues",
+  "bin": {
+    "jsplora": "bin/jsplora"
+  },
+  "scripts": {
+    "install": "node bin/install",
+    "start": "electron .",
+    "start-dev": "ENV=development electron .",
+    "build-darwin": "node_modules/.bin/electron-packager . --darwin --overwrite --icon=app/assets/logos/mac-logo.icns",
+    "build-win32": "node_modules/.bin/electron-packager . --win32 --overwrite --icon=app/assets/logos/windows-logo.ico",
+    "build-linux": "node_modules/.bin/electron-packager . --linux --overwrite",
+    "lint": "node_modules/.bin/eslint -c eslintrc.json --fix index.js app/js spec/",
+    "validate": "node_modules/.bin/eslint -c eslintrc.json index.js app/js spec/",
+    "test": "node_modules/.bin/jasmine JASMINE_CONFIG_PATH=jasmine.json"
+  },
+  "keywords": [
+    "Electron",
+    "CodeMirror",
+    "jq",
+    "json",
+    "json5"
+  ],
+  "author": "wellsjo",
+  "devDependencies": {
+    "electron-packager": "^8.3.0",
+    "eslint": "^3.11.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "jasmine": "^2.5.2"
+  },
+  "dependencies": {
+    "codemirror": "^5.20.2",
+    "electron": "^1.4.8",
+    "electron-config": "^0.2.1",
+    "electron-context-menu": "^0.8.0",
+    "electron-default-menu": "^1.0.0",
+    "git-validate": "^2.2.2",
+    "is-url": "^1.2.2",
+    "jquery": "^3.1.1",
+    "js-beautify": "^1.6.4",
+    "json5": "^0.5.0",
+    "jsonlint": "^1.6.2",
+    "menu": "^0.2.5",
+    "mkdirp": "^0.5.1",
+    "node-jq": ">=0.5.0",
+    "proxyquire": "^1.7.10",
+    "superagent": "^3.1.0"
+  },
+  "pre-commit": [
+    "validate",
+    "test"
+  ]
+}

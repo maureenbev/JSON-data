@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+/**
+ * Allow JSON-splora to be run from the command line with "jsplora"
+ */
+
+const { spawn } = require('child_process')
+const electron = require('electron')
+
+// Start process, passing along command line arguments
+const worker = spawn(electron, [`${__dirname}/../`, process.argv.slice(2)])
+
+worker.on('close', status => {
+  process.exit(status)
+})
